@@ -1,2 +1,2 @@
-# linet-sdk
+# Linet SDK
 Linet.org.il SDK for their API
