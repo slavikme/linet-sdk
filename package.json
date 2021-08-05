@@ -1,0 +1,29 @@
+{
+  "name": "linet-sdk",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Linet.org.il SDK for their API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slavikme/linet-sdk.git"
+  },
+  "keywords": [
+    "linet",
+    "api",
+    "sdk"
+  ],
+  "author": "Slavik Meltser <slavikme@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slavikme/linet-sdk/issues"
+  },
+  "homepage": "https://github.com/slavikme/linet-sdk#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "validator": "^13.6.0"
+  }
+}
