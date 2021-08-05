@@ -51,6 +51,7 @@ export class Linet {
      * @param {string} login_id
      * @param {string} login_hash
      * @param {number} login_company
+     * @param {function(url: string, options: object)} fetchFunction
      */
     constructor(login_id, login_hash, login_company, fetchFunction = fetch) {
         this.loginData = {login_id, login_hash, login_company};
@@ -173,12 +174,13 @@ export class Linet {
      * Retrieve the very first found account with the provided email.
      *
      * @param {string} email
+     * @param {object} filter
      *
      * @returns {Promise} If found, the Promise returns account's object. Otherwise, undefined.
      */
-    getAccountByEmail(email) {
+    getAccountByEmail(email, filter = {}) {
         validateEmailAddress(email);
-        return this.searchAccounts({email}).then(items => {
+        return this.searchAccounts({...filter, email}).then(items => {
             if (items.length)
                 return items[0];
             return undefined;
