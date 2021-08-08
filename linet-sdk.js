@@ -43,7 +43,7 @@ export class Linet {
 
     /**
      * The 'fetch' function to use as a communication dispatcher.
-     * @type {function(url: string, opts: object)}
+     * @type {function(url: string, opts: object): Promise}
      */
     fetchFunction;
 
@@ -51,7 +51,7 @@ export class Linet {
      * @param {string} login_id
      * @param {string} login_hash
      * @param {number} login_company
-     * @param {function(url: string, options: object)} fetchFunction
+     * @param {function(url: string, options: object): Promise} fetchFunction
      */
     constructor(login_id, login_hash, login_company, fetchFunction = fetch) {
         this.loginData = {login_id, login_hash, login_company};

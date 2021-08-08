@@ -12,7 +12,7 @@ const STATUS_CODE_OK = 200;
 /**
  * Send an API call with the provided data.
  *
- * @param {function(url:string,opts:object)} fetch <p style="margin-left:30px">The fetch function to perform the request.<br/>
+ * @param {function(string,object):Promise} fetch <p style="margin-left:30px">The fetch function to perform the request.<br/>
  *     <i>For more info: <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch">https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch</a></i></p>
  * @param {{login_id:string,login_hash:string,login_company:number}} loginData <p style="margin-left:30px">The authentication data required to execute the API call.</p>
  * @param {ACTION_CREATE|ACTION_UPDATE|ACTION_DELETE|ACTION_SEARCH|ACTION_LIST|ACTION_VIEW} action <p style="margin-left:30px">The action to do. Can be:<ul style="margin-left:50px">
