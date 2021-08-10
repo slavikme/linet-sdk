@@ -1,6 +1,6 @@
 {
   "name": "linet-sdk",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "description": "Linet.org.il SDK for their API",
   "main": "index.js",
