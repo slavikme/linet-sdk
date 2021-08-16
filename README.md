@@ -6,7 +6,7 @@
 npm install linet-sdk
 ```
 #### Note!  
-This module has been tested and developed with **node version 15**. If you are experiencing any weird behavior in your project, try to test it with  node version 15+.** 
+This module has been tested and developed with **node version 14**. If you are experiencing any weird behavior in your project, try to test it with node version 14+.** 
  
 ## Configuration
 1. Create a Linet account.
