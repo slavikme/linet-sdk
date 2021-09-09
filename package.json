@@ -2,7 +2,7 @@
   "name": "linet-sdk",
   "version": "0.2.5",
   "description": "Linet.org.il SDK for their API",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,7 +22,9 @@
   },
   "homepage": "https://github.com/slavikme/linet-sdk#readme",
   "dependencies": {
+    "@types/node-fetch": "^2.5.12",
     "node-fetch": "^2.6.1",
+    "typescript": "^4.4.2",
     "validator": "^13.6.0"
   }
 }
