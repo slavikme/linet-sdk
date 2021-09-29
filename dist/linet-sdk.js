@@ -19,11 +19,6 @@ var data_validation_1 = require("./data-validation");
 var Linet = (function () {
     function Linet(login_id, login_hash, login_company, fetchFunction) {
         if (fetchFunction === void 0) { fetchFunction = node_fetch_1.default; }
-        this.loginData = {
-            login_id: null,
-            login_hash: null,
-            login_company: null,
-        };
         this.loginData = { login_id: login_id, login_hash: login_hash, login_company: login_company };
         this.fetchFunction = fetchFunction;
     }
@@ -63,8 +58,7 @@ var Linet = (function () {
         (0, data_validation_1.validateSKU)(sku);
         return this.searchItems({ sku: sku }).then(function (items) {
             if (items.length)
-                return items[0];
-            return undefined;
+                return items.find(function (item) { return item.sku === sku; });
         });
     };
     Linet.prototype.getItemById = function (itemId) {
@@ -86,7 +80,7 @@ var Linet = (function () {
     };
     Linet.prototype.searchItems = function (filter) {
         (0, data_validation_1.validateObject)(filter);
-        return (0, dispatcher_1.callAPI)(this.fetchFunction, this.loginData, consts_1.ACTION_SEARCH, consts_1.COMMAND_ITEM, filter);
+        return (0, dispatcher_1.callAPI)(this.fetchFunction, this.loginData, consts_1.ACTION_NEWSEARCH, consts_1.COMMAND_ITEM, { query: filter });
     };
     return Linet;
 }());

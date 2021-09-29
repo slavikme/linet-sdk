@@ -274,3 +274,5 @@ Temporary Items
 .idea
 
 test.js
+dist/test.*
+src/test.ts

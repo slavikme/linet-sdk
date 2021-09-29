@@ -15,7 +15,7 @@ import {
     YES,
     DEFAULT_ITEM_STOCK_TYPE,
     DEFAULT_ITEM_VAT_CATEGORY_ID,
-    DEFAULT_PRICE, NO
+    DEFAULT_PRICE, NO, ACTION_NEWSEARCH
 } from './consts';
 import { callAPI } from './dispatcher';
 import {
@@ -29,18 +29,14 @@ import {
     validateBoolean,
     validatePrice, validateNonEmptyString, validateId
 } from './data-validation';
-import {Item, ItemCreateResult, ItemOptions} from "../index";
+import {Item, Item2, ItemCreateResult, ItemOptions, ItemOptions2, LoginData} from "../index";
 
 export class Linet {
     /**
      * The login information to connect to Linet API.
      * @type {{login_id:string,login_hash:string,login_company:number}}
      */
-    loginData = {
-        login_id: null,
-        login_hash: null,
-        login_company: null,
-    };
+    loginData: LoginData;
 
     /**
      * The 'fetch' function to use as a communication dispatcher.
@@ -150,12 +146,11 @@ export class Linet {
      *
      * @returns {Promise}
      */
-    getItemBySKU(sku: string): Promise<Item> {
+    getItemBySKU(sku: string): Promise<Item2 | undefined> {
         validateSKU(sku);
         return this.searchItems({sku}).then(items => {
             if (items.length)
-                return items[0];
-            return undefined;
+                return items.find(item => item.sku === sku);
         });
     }
 
@@ -191,7 +186,7 @@ export class Linet {
      *
      * @returns {Promise<*>}
      */
-    searchAccounts(filter) {
+    searchAccounts(filter): Promise<{ [prop: string]: unknown }[]> {
         validateObject(filter);
         return callAPI(this.fetchFunction, this.loginData, ACTION_SEARCH, COMMAND_ACCOUNTS, filter);
     }
@@ -199,8 +194,8 @@ export class Linet {
     /**
      * Search for items using the provided filter object.
      */
-    searchItems(filter: ItemOptions): Promise<Item[]> {
+    searchItems(filter: ItemOptions2): Promise<Item2[]> {
         validateObject(filter);
-        return callAPI(this.fetchFunction, this.loginData, ACTION_SEARCH, COMMAND_ITEM, filter);
+        return callAPI(this.fetchFunction, this.loginData, ACTION_NEWSEARCH, COMMAND_ITEM, {query: filter});
     }
 }

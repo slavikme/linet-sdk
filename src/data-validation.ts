@@ -1,10 +1,11 @@
 import * as consts from './consts';
 import validator from "validator";
 import {ACTION_DELETE, ACTION_UPDATE, ACTION_VIEW, AVAILABLE_ACTIONS_PER_COMMAND, DEFAULT_PRICE} from "./consts";
+import {Action} from "../index";
 
-const allowedDocumentTypes = [];
-const allowedDocumentStatuses = [];
-const allowedCurrencyIds = [];
+const allowedDocumentTypes: any[] = [];
+const allowedDocumentStatuses: any[] = [];
+const allowedCurrencyIds: any[] = [];
 
 Object.keys(consts).forEach(keyName => {
     switch ( true ) {
@@ -174,7 +175,7 @@ export const isEmpty = value => [void 0, null, ''].includes(value);
  * @param {number} id
  * @returns {number}
  */
-export const validateActionId = (action, id) => {
+export const validateActionId = (action: Action, id?: number) => {
     if ( [ACTION_DELETE, ACTION_UPDATE, ACTION_VIEW].includes(action) )
         return validateId(id, 'validateActionId:id');
 };

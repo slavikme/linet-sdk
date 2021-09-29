@@ -4,6 +4,7 @@ export declare const ACTION_CREATE = "create";
 export declare const ACTION_UPDATE = "update";
 export declare const ACTION_DELETE = "delete";
 export declare const ACTION_SEARCH = "search";
+export declare const ACTION_NEWSEARCH = "newsearch";
 export declare const ACTION_LIST = "list";
 export declare const ACTION_VIEW = "view";
 export declare const COMMAND_COMPANY = "company";

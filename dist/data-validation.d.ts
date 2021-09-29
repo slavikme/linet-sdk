@@ -1,3 +1,4 @@
+import { Action } from "../index";
 export declare class DataValidationError extends Error {
     dataName: any;
     dataValue: any;
@@ -15,6 +16,6 @@ export declare const validateSKU: (sku: any, valueName?: string) => string;
 export declare const validatePrice: (price: any, valueName?: string) => any;
 export declare const validateObject: (value: any, valueName?: string) => any;
 export declare const isEmpty: (value: any) => boolean;
-export declare const validateActionId: (action: any, id: any) => any;
+export declare const validateActionId: (action: Action, id?: number) => any;
 export declare const validateCommand: (command: any, valueName?: string) => any;
 export declare const validateCommandAction: (command: any, action: any) => any;
